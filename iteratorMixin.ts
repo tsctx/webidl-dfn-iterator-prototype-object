@@ -60,7 +60,7 @@ export function iteratorMixin(
       writable: true,
       enumerable: true,
       configurable: true,
-      value: function forEach(callbackfn: any, thisArg = undefined) {
+      value: function forEach(callbackfn: any, thisArg = globalThis) {
         brandCheck(this, object);
         checkRequiredArguments(arguments, 1, `Failed to execute 'forEach' on '${name}'`);
         if (typeof callbackfn !== "function") {
