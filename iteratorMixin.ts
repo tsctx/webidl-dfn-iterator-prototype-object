@@ -1,5 +1,18 @@
 import { createFastIterator } from "./createIterator.ts";
 
+function checkRequiredArguments(
+  arg: any[] | IArguments | number,
+  required: number,
+  prefix?: string,
+) {
+  if ((typeof arg === "number" ? arg : (arg = arg.length)) < required) {
+    const errMsg = `${prefix ? prefix + ": " : ""}${required} argument${
+      required === 1 ? "" : "s"
+    } required, but only ${arg} present.`;
+    throw new TypeError(errMsg);
+  }
+}
+
 function brandCheck(self: any, instance: any) {
   if (!(self instanceof instance)) {
     throw new TypeError("Illegal invocation");
