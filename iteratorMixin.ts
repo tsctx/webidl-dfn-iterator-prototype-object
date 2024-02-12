@@ -1,5 +1,11 @@
 import { createFastIterator } from "./createIterator.ts";
 
+function brandCheck(self: any, instance: any) {
+  if (!(self instanceof instance)) {
+    throw new TypeError("Illegal invocation");
+  }
+}
+
 export function iteratorMixin(
   name: string,
   object: any,
