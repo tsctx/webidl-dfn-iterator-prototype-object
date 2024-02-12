@@ -68,7 +68,6 @@ export function iteratorMixin(
             `Failed to execute 'forEach' on '${name}': parameter 1 is not of type 'Function'.`,
           );
         }
-        // may for(;;) loop ???
         for (const { 0: key, 1: value } of createIterator(this, "key+value")) {
           callbackfn.call(thisArg, value, key, this);
         }
